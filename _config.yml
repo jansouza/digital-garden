@@ -1,0 +1,43 @@
+title: "Garden"
+description: "Um digital garden pessoal com notas, tutoriais e documentação"
+url: "https://garden.jansouza.com"
+baseurl: ""
+
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+collections:
+  tutorials:
+    output: true
+    permalink: /tutorials/:path/
+  docs:
+    output: true
+    permalink: /docs/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "tutorials"
+    values:
+      layout: "doc"
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "doc"
+
+# Arquivos/pastas excluídos do build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md

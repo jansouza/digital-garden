@@ -4,6 +4,10 @@ url: "https://garden.jansouza.com"
 baseurl: ""
 lang: "pt-BR"
 
+# Google Analytics 4 Measurement ID (formato G-XXXXXXXXXX)
+# Crie a propriedade em https://analytics.google.com e substitua abaixo
+google_analytics: "G-0LYVB8R8BC"
+
 twitter:
   card: summary_large_image
 

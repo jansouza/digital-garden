@@ -8,6 +8,8 @@ lang: "pt-BR"
 # Crie a propriedade em https://analytics.google.com e substitua abaixo
 google_analytics: "G-0LYVB8R8BC"
 
+logo: /assets/images/social/og-image.png
+
 twitter:
   card: summary_large_image
 

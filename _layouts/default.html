@@ -1,20 +1,47 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-  {% seo %}
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  {% feed_meta %}
-</head>
-<body>
-  {% include header.html %}
+<html lang="{{ page.lang | default: site.lang | default: 'pt-BR' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#101913">
+    <meta name="color-scheme" content="dark">
+    {% seo %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" media="screen" type="text/css">
+    <link rel="stylesheet" href="{{ '/assets/css/print.css' | relative_url }}" media="print" type="text/css">
+    {% feed_meta %}
+  </head>
 
-  <main class="content">
-    {{ content }}
-  </main>
+  <body>
+    <header>
+      <div class="inner">
+        {% include header.html %}
+      </div>
+    </header>
 
-  {% include footer.html %}
-</body>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          {{ content }}
+        </section>
+
+        <aside id="sidebar">
+          {% include sidebar.html %}
+        </aside>
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+    <script>
+      document.querySelectorAll('a[href^="http"]').forEach(function (link) {
+        if (link.hostname !== window.location.hostname) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    </script>
+  </body>
 </html>

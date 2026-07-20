@@ -1,0 +1,13 @@
+{% assign all_notes = site.posts | concat: site.tutorials | concat: site.docs %}
+{% assign seeds = all_notes | where: "stage", "seed" %}
+
+<p><strong>🌱 Sementes recentes</strong></p>
+<ul>
+  {% for note in seeds limit: 5 %}
+    <li><a href="{{ note.url | relative_url }}">{{ note.title }}</a></li>
+  {% endfor %}
+</ul>
+
+<p><a href="{{ '/tags/' | relative_url }}">Ver todas as tags &rarr;</a></p>
+
+<p><a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>

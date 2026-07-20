@@ -4,6 +4,7 @@ title: "Homelab: subindo de nível com o LabRax, um rack impresso em 3D"
 date: 2026-07-12 10:00:00 -0300
 categories: [homelab]
 tags: [homelab, kubernetes, k3s, impressao-3d, maker, devops, sre]
+stage: growing
 ---
 
 > Publicado originalmente no

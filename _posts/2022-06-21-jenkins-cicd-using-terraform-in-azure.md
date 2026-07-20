@@ -4,6 +4,7 @@ title: "Jenkins CI/CD using Terraform in Azure"
 date: 2022-06-21 10:00:00 -0300
 categories: [devops]
 tags: [jenkins, terraform, azure, docker, cicd, iac]
+stage: mature
 lang: en
 image: /assets/images/jenkis-terraform/1655741099292.png
 ---

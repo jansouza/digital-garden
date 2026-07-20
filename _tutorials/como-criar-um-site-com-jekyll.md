@@ -1,6 +1,8 @@
 ---
 title: "Como criar um site com Jekyll"
 description: "Um guia passo a passo para criar seu primeiro site estático com Jekyll."
+tags: [jekyll, github-pages, tutorial]
+stage: mature
 ---
 
 Neste tutorial você vai aprender a criar um site estático com Jekyll do zero.

@@ -1,6 +1,8 @@
 ---
 title: "Estrutura do projeto"
 description: "Referência da organização de pastas e arquivos deste site."
+tags: [jekyll, docs-as-code]
+stage: mature
 ---
 
 Esta página documenta como o repositório do Garden está organizado.

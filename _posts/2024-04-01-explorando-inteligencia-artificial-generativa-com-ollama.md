@@ -4,6 +4,7 @@ title: "Explorando a Inteligência Artificial Generativa com OLLAMA"
 date: 2024-04-01 10:00:00 -0300
 categories: [ia]
 tags: [ollama, llm, ia-generativa, docker, kubernetes, open-webui]
+stage: mature
 image: /assets/images/ollama/1711881847412.png
 ---
 

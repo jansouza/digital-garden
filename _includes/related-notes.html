@@ -1,0 +1,23 @@
+{% assign current_tags = page.tags | default: "" %}
+{% assign related = "" | split: "" %}
+{% if current_tags.size > 0 %}
+  {% assign all_notes = site.posts | concat: site.tutorials | concat: site.docs %}
+  {% for note in all_notes %}
+    {% if note.url != page.url %}
+      {% assign shared = note.tags | default: "" | intersect: current_tags %}
+      {% if shared.size > 0 %}
+        {% assign related = related | push: note %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% if related.size > 0 %}
+<aside class="related-notes">
+  <h2>Notas relacionadas</h2>
+  <ul>
+    {% for note in related limit: 5 %}
+      <li><a href="{{ note.url | relative_url }}">{{ note.title }}</a></li>
+    {% endfor %}
+  </ul>
+</aside>
+{% endif %}

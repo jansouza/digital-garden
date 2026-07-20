@@ -4,6 +4,7 @@ title: "Impulsionando a Automação Residencial: Criando um Cluster Kubernetes c
 date: 2024-03-01 10:00:00 -0300
 categories: [homelab]
 tags: [raspberry-pi, kubernetes, k3s, home-assistant, automacao-residencial, homelab]
+stage: growing
 image: /assets/images/k8s-raspberry/1709237025850.jpeg
 ---
 

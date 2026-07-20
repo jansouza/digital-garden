@@ -1,0 +1,354 @@
+@import "normalize";
+@import "rouge-github";
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+$bg: #101913;
+$bg-raised: #16211a;
+$text: #e6e3d6;
+$muted: #9db29e;
+$accent: #8fbc6a;
+$accent-strong: #a9d17e;
+$border: #263429;
+
+/* LAYOUT STYLES */
+body {
+  font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $text;
+  background: $bg;
+}
+
+p { margin-top: 0; }
+
+a {
+  color: $accent-strong;
+  text-decoration: none;
+}
+a:hover { color: $accent; }
+
+header {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-family: "Fraunces", Georgia, serif;
+  background: $bg-raised;
+  border-bottom: solid 1px $border;
+}
+
+header .inner > a { color: inherit; }
+
+header h1 {
+  width: auto;
+  margin-top: 0;
+  margin-bottom: 0.2em;
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1;
+  color: $accent-strong;
+  letter-spacing: -1px;
+}
+
+header h2 {
+  width: auto;
+  max-width: 540px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1.4;
+  color: $muted;
+  letter-spacing: 0;
+}
+
+.site-nav {
+  margin-top: 1rem;
+}
+
+.site-nav a {
+  margin-right: 1.25rem;
+  font-size: 0.95em;
+  color: $muted;
+}
+
+.site-nav a:hover { color: $accent-strong; }
+
+.social-nav {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  display: flex;
+  gap: 0.9rem;
+}
+
+.social-nav a {
+  color: $muted;
+  line-height: 0;
+}
+
+.social-nav a:hover { color: $accent-strong; }
+
+.inner {
+  position: relative;
+  width: 940px;
+  max-width: 92%;
+  margin: 0 auto;
+}
+
+#content-wrapper {
+  padding-top: 30px;
+  border-top: solid 1px $border;
+}
+
+#main-content {
+  float: left;
+  width: 690px;
+  max-width: 100%;
+}
+
+#main-content img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+aside#sidebar {
+  float: right;
+  width: 200px;
+  min-height: 200px;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: $muted;
+}
+
+aside#sidebar a { color: $accent-strong; }
+
+aside#sidebar p.repo-owner,
+aside#sidebar p.repo-owner a {
+  font-weight: bold;
+}
+
+code, pre {
+  margin-bottom: 30px;
+  font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+  font-size: 0.9em;
+  color: $text;
+}
+
+code {
+  padding: 0 3px;
+  background-color: $bg-raised;
+  border: solid 1px $border;
+  border-radius: 4px;
+}
+
+pre {
+  padding: 20px;
+  overflow: auto;
+  background: $bg-raised;
+  border: solid 1px $border;
+  border-radius: 6px;
+}
+pre code {
+  padding: 0;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+}
+
+ul, ol, dl {
+  margin-bottom: 20px;
+}
+
+/* COMMON STYLES */
+
+hr {
+  height: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 0;
+  border-top: solid 1px $border;
+}
+
+table {
+  width: 100%;
+  border: 1px solid $border;
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: 600;
+  text-align: left;
+  padding: 0.5rem;
+  border: 1px solid $border;
+}
+
+td {
+  font-weight: 400;
+  text-align: left;
+  padding: 0.5rem;
+  border: 1px solid $border;
+}
+
+/* GENERAL ELEMENT TYPE STYLES */
+
+#main-content h1,
+#main-content h2,
+#main-content h3,
+#main-content h4,
+#main-content h5,
+#main-content h6 {
+  font-family: "Fraunces", Georgia, serif;
+  color: $accent-strong;
+}
+
+#main-content h1 {
+  margin-top: 0;
+  margin-bottom: 0.3em;
+  font-size: 2.2em;
+  font-weight: 600;
+}
+
+#main-content h2 {
+  margin-top: 1.5em;
+  margin-bottom: 8px;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+#main-content h3 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+p { margin-bottom: 20px; }
+
+blockquote {
+  padding: 0 0 0 20px;
+  margin-bottom: 20px;
+  color: $muted;
+  border-left: 4px solid $accent;
+}
+
+ul {
+  list-style-position: outside;
+  list-style: disc;
+  padding-left: 20px;
+}
+
+ol {
+  list-style-position: outside;
+  list-style: decimal;
+  padding-left: 20px;
+}
+
+footer {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  margin-top: 40px;
+  font-size: 13px;
+  color: $muted;
+  border-top: solid 1px $border;
+}
+
+footer a { color: $muted; }
+footer a:hover { color: $accent-strong; }
+
+/* GARDEN-SPECIFIC COMPONENTS */
+
+.stage-badge {
+  display: inline-block;
+  font-size: 0.8em;
+  padding: 0.1em 0.5em;
+  border-radius: 999px;
+  border: 1px solid $border;
+  background: $bg-raised;
+  white-space: nowrap;
+}
+
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.tag-list li a {
+  display: inline-block;
+  font-size: 0.85em;
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  background: $bg-raised;
+  border: 1px solid $border;
+  color: $accent-strong;
+}
+
+.tag-list li a:hover {
+  background: $accent;
+  border-color: $accent;
+  color: $bg;
+}
+
+.tag-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0 2rem;
+  font-size: 0.9em;
+}
+
+.related-notes {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid $border;
+  border-radius: 8px;
+  background: $bg-raised;
+}
+
+.related-notes h2 {
+  margin-top: 0 !important;
+  font-size: 1.1rem !important;
+}
+
+.post-meta,
+.doc-description,
+small {
+  color: $muted;
+}
+
+/* MISC */
+.clearfix:after {
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  content: '.';
+}
+
+.clearfix { display: block; }
+
+/* Media Queries */
+@media only screen and (max-width: 767px) {
+  header h1 { font-size: 40px; }
+  header h2 { font-size: 18px; }
+  .social-nav {
+    position: static;
+    margin-top: 1rem;
+  }
+  #main-content,
+  aside#sidebar {
+    float: none;
+    width: 100% !important;
+  }
+  aside#sidebar {
+    min-height: 0;
+    padding: 20px 0 0;
+    margin-top: 20px;
+    border-top: solid 1px $border;
+  }
+}

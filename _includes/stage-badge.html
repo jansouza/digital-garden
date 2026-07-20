@@ -1,0 +1,15 @@
+{% assign stage = include.stage | default: "seed" %}
+{% case stage %}
+  {% when "mature" %}
+    {% assign stage_emoji = "🌳" %}
+    {% assign stage_label = "Consolidada" %}
+  {% when "growing" %}
+    {% assign stage_emoji = "🌿" %}
+    {% assign stage_label = "Em crescimento" %}
+  {% else %}
+    {% assign stage_emoji = "🌱" %}
+    {% assign stage_label = "Semente" %}
+{% endcase %}
+<span class="stage-badge stage-{{ stage }}" title="Maturidade da nota: {{ stage_label }}">
+  {{ stage_emoji }} {{ stage_label }}
+</span>

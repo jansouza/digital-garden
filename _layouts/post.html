@@ -9,12 +9,16 @@ layout: default
         {{ page.date | date: "%d/%m/%Y" }}
       </time>
       {% if page.author %} · {{ page.author }}{% endif %}
+      · {% include stage-badge.html stage=page.stage %}
     </p>
+    {% include tag-list.html tags=page.tags %}
   </header>
 
   <div class="post-content">
     {{ content }}
   </div>
+
+  {% include related-notes.html %}
 
   <p><a href="{{ '/blog/' | relative_url }}">&larr; Voltar para o blog</a></p>
 </article>

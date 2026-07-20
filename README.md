@@ -1,6 +1,6 @@
 # 🌱 Garden
 
-Repositório do meu digital garden pessoal, publicado em
+Repositório do meu digital garden, publicado em
 **[garden.jansouza.com](https://garden.jansouza.com)** via GitHub Pages.
 
 Aqui ficam notas, posts de blog, tutoriais e documentação — conteúdo que
@@ -59,4 +59,4 @@ Mesmo formato dos tutoriais, mas em `_docs/` — a URL será
 - `_docs/` — coleção de documentação
 - `_layouts/` e `_includes/` — templates HTML
 - `assets/` — CSS e imagens
-- `blog/`, `tutorials/`, `docs/` — páginas de índice de cada seção
+- `posts/`, `tutorials/`, `docs/` — páginas de índice de cada seção

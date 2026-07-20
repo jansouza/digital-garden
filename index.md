@@ -3,15 +3,16 @@ layout: default
 title: "Início"
 ---
 
-Bem-vindo ao meu digital garden — um espaço pessoal onde cultivo notas,
-tutoriais e documentação sobre tecnologia e aprendizados do dia a dia.
+Bem-vindo ao meu digital garden, onde cultivo notas, tutoriais e
+documentação sobre tecnologia e aprendizados do dia a dia.
 
-Diferente de um blog tradicional, o conteúdo aqui está sempre em
-crescimento: notas são plantadas, regadas e revisadas com o tempo.
+Aqui o conteúdo está sempre em crescimento: notas são plantadas,
+regadas e revisadas com o tempo, em vez de publicadas uma única vez
+e esquecidas.
 
 ## Por onde começar
 
-- 📝 **[Blog](/blog/)** — posts e reflexões em ordem cronológica
+- 📝 **[Posts](/posts/)** — anotações em ordem cronológica
 - 📚 **[Tutoriais](/tutorials/)** — guias passo a passo
 - 📖 **[Docs](/docs/)** — documentação de referência
 - 🏷️ **[Tags](/tags/)** — todas as notas agrupadas por tema

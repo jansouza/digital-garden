@@ -33,7 +33,7 @@ tudo isso está em
 
 Agora você pode me acompanhar por aqui:
 
-- [Blog](/blog/) — posts em ordem cronológica
+- [Posts](/posts/) — posts em ordem cronológica
 - [Tutoriais](/tutorials/) — guias passo a passo
 - [Docs](/docs/) — documentação de referência
 

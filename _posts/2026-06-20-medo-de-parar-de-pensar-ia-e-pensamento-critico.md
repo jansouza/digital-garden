@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "O medo não é a IA pensar. É você parar de pensar."
-date: 2026-07-20 11:00:00 -0300
+date: 2026-06-20 11:00:00 -0300
 categories: [carreira]
 tags: [inteligencia-artificial, desenvolvimento-de-software, programacao, carreira, ia]
 stage: mature
@@ -52,4 +52,4 @@ disposto a pensar, mesmo tendo a opção de não precisar?".
 
 *Publicado originalmente no
 [LinkedIn](https://www.linkedin.com/posts/jansouza_deus-vaidade-e-morte-conversa-de-karnal-activity-7465757682134736896-5lWB)
-em 20 de julho de 2026.*
+em 20 de junho de 2026.*

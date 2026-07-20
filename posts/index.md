@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "Blog"
+title: "Posts"
 ---
 
-# Blog
+# Posts
 
-Posts em ordem cronológica, do mais recente para o mais antigo.
+Anotações em ordem cronológica, do mais recente para o mais antigo.
 
 <ul class="post-list">
   {% for post in site.posts %}

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Criando um projeto Ansible completo do zero com o IBM Bob"
-date: 2026-07-20 10:00:00 -0300
+date: 2026-07-06 10:00:00 -0300
 categories: [devops]
 tags: [ibm, devops, ansible, ia, automacao, ibm-bob]
 stage: mature

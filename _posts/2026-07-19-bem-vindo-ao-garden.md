@@ -25,7 +25,7 @@ evoluindo com o tempo.
 Foi aí que decidi criar meu próprio Jardim. Escolhi hospedá-lo no próprio
 GitHub Pages, com o conceito de **docs as code** — tratar documentação
 como código, escrita em texto simples e versionada no Git — que tanto
-prezo no meu dia a dia. Caiu como uma luva.
+prezo no meu dia a dia.
 
 E já comecei a replantar por aqui: o post do homelab que deu origem a
 tudo isso está em

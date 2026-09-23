@@ -243,6 +243,16 @@ de dentro do trace, os links voltam para as métricas do serviço.
 
 ![Trace de uma chamada de LLM no Grafana Tempo, com os atributos do span incluindo modelo, streaming e mensagens de entrada](/assets/images/openllmetry-lab/trace-tempo.png)
 
+Foi inspecionando um desses traces que veio o primeiro ganho prático do lab.
+O `gen_ai.input.messages` mostrou que a aplicação estava mandando um bocado
+de contexto que não servia para nada — sobra de um prompt anterior, texto
+duplicado, informação que não influenciava a resposta. Sem abrir o trace,
+esse tipo de coisa é invisível: a chamada funciona, a resposta vem certa, e
+ninguém olha para o que está sendo pago para chegar nela. Cortando esse
+excesso, o prompt ficou mais enxuto — mesma tarefa, menos token gasto por
+chamada. Não veio de nenhum painel: veio de abrir o conteúdo real de uma
+chamada, que é exatamente o que trace mostra e métrica, sozinha, não mostra.
+
 A ideia é publicar esse dashboard no repositório do Grafana, para quem
 montar um pipeline parecido não precisar refazer.
 

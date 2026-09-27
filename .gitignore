@@ -13,3 +13,6 @@ Gemfile.lock
 .DS_Store
 Thumbs.db
 *.swp
+
+# Rascunhos de posts para o LinkedIn
+_linkedin/

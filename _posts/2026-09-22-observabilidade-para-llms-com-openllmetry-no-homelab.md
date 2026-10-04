@@ -23,7 +23,7 @@ quanto token foi gasto, em qual modelo, com que latência e para qual tarefa.
 
 ![Visão geral do dashboard de observabilidade de LLM no Grafana, com total de tokens, requisições, latência p95, erros e consumo de token por modelo e provedor](/assets/images/openllmetry-lab/dashboard-overview.png)
 
-## Governança de IA começa com dado, não com política
+## O dado que falta para governança de IA
 
 "Governança de IA" virou um termo guarda-chuva, que vai de política de uso
 até compliance regulatório. Mas quase toda decisão nesse assunto esbarra
@@ -33,9 +33,8 @@ consumiu, quanto tempo levou e qual modelo respondeu, não dá para dizer qual
 time está gastando mais, nem se o modelo caro entrega qualidade proporcional
 ao preço. Dá para escrever política sem esse dado, mas ela vai ser chute.
 
-E o motivo da lacuna é meio óbvio quando se olha de perto: chamar a API de
-um provedor de IA é tão simples que vira só mais uma chamada HTTP perdida no
-meio do código, sem span, sem métrica, sem log estruturado. Banco de dados,
+Essa lacuna existe porque chamar a API de um provedor de IA é tão simples
+que vira só mais uma chamada HTTP perdida no meio do código, sem span, sem métrica, sem log estruturado. Banco de dados,
 fila e API interna qualquer time de plataforma já trata com um cuidado de
 observabilidade que virou padrão há anos. Chamada de LLM, na maioria dos
 lugares, ainda é best-effort, como se token não custasse nada e latência
@@ -160,7 +159,7 @@ service:
       exporters: [prometheus]
 ```
 
-Aquele `resource/prometheus` não é cosmético. O exporter mapeia
+O `resource/prometheus` está ali porque o exporter mapeia
 `service.instance.id` para o label `instance`, e esse id é um UUID novo a
 cada restart do processo: sem removê-lo, o Prometheus acumula uma série nova
 a cada deploy em vez de continuar a mesma.
@@ -176,8 +175,8 @@ configuração que valem registro:
   parciais.
 - O `metrics_generator` deriva métricas RED e o service graph dos spans e
   faz remote-write para o Prometheus, que precisa estar rodando com
-  `--web.enable-remote-write-receiver` — senão o Tempo escreve para ninguém,
-  sem erro visível em lugar nenhum.
+  `--web.enable-remote-write-receiver`. Sem essa flag, o Tempo escreve para
+  ninguém, sem erro visível em lugar nenhum.
 - O processor `local-blocks` habilita consultas de métricas via TraceQL,
   tipo `{span."gen_ai.usage.output_tokens" > 1000}`.
 
@@ -251,21 +250,20 @@ de dentro do trace, os links voltam para as métricas do serviço.
 Foi inspecionando um desses traces que veio o primeiro ganho prático do lab.
 O `gen_ai.input.messages` mostrou que parte do contexto enviado pela
 aplicação não servia para nada: sobra de um prompt anterior, texto
-duplicado, informação que não influenciava a resposta. Sem abrir o trace,
-esse tipo de coisa não aparece. A chamada funciona, a resposta vem certa e
-ninguém olha para o que está sendo pago para chegar nela. Cortei esse
-excesso, e a mesma tarefa passou a gastar menos token por chamada. Nenhum painel teria
-apontado isso: a métrica conta os tokens, mas quem mostra o que foi enviado
-neles é o trace.
+duplicado, informação que não influenciava a resposta. A chamada funciona, a resposta
+vem certa e ninguém olha para o que está sendo pago para chegar nela. Cortei
+esse excesso, e a mesma tarefa passou a gastar menos token por chamada.
+Nenhum painel teria apontado isso: a métrica conta os tokens, mas quem
+mostra o que foi enviado neles é o trace.
 
 A ideia é publicar esse dashboard no repositório do Grafana, para quem
 montar um pipeline parecido não precisar refazer.
 
 ## Próximos passos: o custo de verdade
 
-O lab mede token e latência, não dinheiro. E são coisas diferentes: um
-modelo pode consumir menos token e ainda sair mais caro, porque
-`gen_ai_client_token_usage_sum` carrega quantidade, não preço.
+O lab mede token e latência, mas não dinheiro. Um modelo pode consumir menos
+token e ainda sair mais caro, porque `gen_ai_client_token_usage_sum` só
+carrega quantidade.
 
 O próximo passo é cruzar esse volume com a tabela de preço de cada modelo
 (entrada e saída custam diferente na maioria dos provedores), seja com uma

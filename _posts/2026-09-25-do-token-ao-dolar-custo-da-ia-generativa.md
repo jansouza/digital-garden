@@ -25,8 +25,8 @@ provedor. O objetivo é pôr os tokens na mesma unidade do orçamento, para
 poder comparar modelos, tarefas e aplicações entre si.
 
 Usando o preço de lista de cada modelo, os nove dias de dados do homelab
-(2.326 chamadas e 4,6 milhões de tokens) dariam uns US$ 22,50. O total diz
-pouco. O que mudou foi a distribuição: o cenário do benchmark que mais
+(2.326 chamadas e 4,6 milhões de tokens) dariam uns US$ 22,50. Esse total,
+sozinho, diz pouco. A distribuição diz mais: o cenário do benchmark que mais
 consumia token não era o que mais custava, e um agente com 15% das chamadas
 ficou com quase metade da conta.
 
@@ -178,12 +178,11 @@ benchmark. Quem continua no Opus 5 por inércia paga mais por um modelo que
 já foi superado, e olhando só token não teria como perceber, porque o
 volume dos dois é idêntico.
 
-Qualidade, porém, eu não medi no lab. O benchmark mede
-token, custo e latência, não se a resposta está certa, então o "melhor"
-aqui vem da Anthropic e das avaliações públicas, não do meu dashboard. Mas
-é justamente esse tipo de decisão que a visão em dinheiro facilita: a
-pergunta deixa de ser "vale pagar mais pelo modelo novo?" e vira "por que
-ainda estou pagando mais pelo antigo?".
+Qualidade, porém, eu não medi no lab. O benchmark mede token, custo e
+latência, não se a resposta está certa, então o "melhor" aqui vem da
+Anthropic e das avaliações públicas, não do meu dashboard. Mesmo assim, com
+os números lado a lado, fica difícil justificar continuar pagando mais pelo
+modelo antigo.
 
 ## Tier do gateway não é preço
 
@@ -193,11 +192,12 @@ multiplicador também está no YAML, e o dashboard mostra as "unidades de
 gateway" (requisições com sucesso vezes tier) numa linha separada: 3,7 mil
 no período.
 
-As duas medidas nem sempre concordam. Três modelos têm tier 1x: `gemini-3.5-flash`, `claude-haiku-4-5` e
-`llama-3-3-70b-instruct`. Pela cota, custam o mesmo. A preço de lista, para
-o mesmo trabalho no benchmark, custaram US$ 0,47, US$ 0,26 e US$ 0,07 — quase
-sete vezes de diferença dentro do mesmo tier. E o `gpt-5.6-luna` tem tier 0x, é
-"grátis" no gateway, mas tem custo de lista.
+As duas medidas nem sempre concordam. Três modelos têm tier 1x:
+`gemini-3.5-flash`, `claude-haiku-4-5` e `llama-3-3-70b-instruct`. Pela
+cota, custam o mesmo. A preço de lista, para o mesmo trabalho no benchmark,
+custaram US$ 0,47, US$ 0,26 e US$ 0,07, quase sete vezes de diferença dentro
+do mesmo tier. E o `gpt-5.6-luna` tem tier 0x, é "grátis" no gateway, mas
+tem custo de lista.
 
 As duas respostas estão certas, só respondem perguntas diferentes. O tier
 diz quanto da minha cota eu estou gastando; o preço de lista diz quanto
@@ -226,12 +226,7 @@ Custo estimado a partir de telemetria tem limites:
   dias, nas execuções do benchmark. Em produção, com tráfego mais regular,
   a projeção faz mais sentido.
 
-## Fechando a conta
-
-No post anterior eu disse que medir token era metade do problema de
-governança, e que a outra metade era a conta. Com a tabela de preço dentro
-do Prometheus, o dashboard agora responde às duas perguntas que faltavam:
-quanto a IA generativa está custando, e onde.
+## Próximos passos
 
 A tabela de preço e o dashboard de custo vão junto com o dashboard de
 observabilidade quando eu publicar no repositório do Grafana. O próximo

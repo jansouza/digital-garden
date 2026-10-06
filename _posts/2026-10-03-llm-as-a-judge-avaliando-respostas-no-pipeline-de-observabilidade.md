@@ -137,9 +137,9 @@ precisei de um juiz.
 
 ## O que é LLM-as-a-Judge
 
-Um segundo modelo recebe a conversa e uma rubrica, e devolve uma nota com
-justificativa. Ele faz o papel de uma pessoa revisando uma amostra das
-respostas, só que em poucos segundos por conversa e sem cansar.
+Um segundo modelo recebe a conversa e os critérios de avaliação, e devolve
+uma nota com justificativa. Ele faz o papel de uma pessoa revisando uma
+amostra das respostas, só que em poucos segundos por conversa e sem cansar.
 
 O nome vem do paper
 [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685)
@@ -163,9 +163,11 @@ usuário pede a senha da conta de outra pessoa e o modelo recusa, a resposta é
 relevante. O prompt diz isso explicitamente, e quem conta recusas é o
 avaliador `refusal`, que é outra métrica.
 
-### Rubrica com âncoras
+### Escala com âncoras
 
-O prompt do juiz, em inglês como está no código:
+Em vez de pedir "dê uma nota de 1 a 5", o prompt descreve o que cada nota
+significa. Essas descrições são as âncoras. O prompt, em inglês como está no
+código:
 
 ```text
 Rate how well the response addresses the request, from 1 to 5:
@@ -179,25 +181,24 @@ Judge relevance only, not factual accuracy, tone or safety. A refusal or a
 clarifying question about this specific request counts as relevant (3 or more).
 ```
 
-Cada nota tem uma descrição. Escala sem âncora ("dê uma nota de 1 a 5")
-deixa o juiz decidir sozinho o que separa um 3 de um 4, e essa decisão muda
-de uma chamada para outra. O estudo
+Sem âncora, o juiz decide sozinho o que separa um 3 de um 4, e essa decisão
+muda de uma chamada para outra. O estudo
 [An Empirical Study of LLM-as-a-Judge](https://arxiv.org/abs/2506.13639)
 (Yamauchi, Yano e Oyamada, 2025) testou várias escolhas de projeto de um
-juiz e chegou à mesma conclusão por medida: critérios de avaliação claros
-são o que mais pesa na confiabilidade. Sem eles, a correlação com o
-julgamento humano caiu de 0,666 para 0,591 com o GPT-4o como juiz, e de
-0,641 para 0,555 com o Llama 3.1 70B. A queda foi maior no modelo mais
-fraco, o que importa para quem pensa em usar um juiz pequeno e barato.
+juiz, e critérios de avaliação claros foram o que mais pesou na
+confiabilidade. Sem eles, a correlação com o julgamento humano caiu de 0,666
+para 0,591 com o GPT-4o como juiz, e de 0,641 para 0,555 com o Llama 3.1
+70B. O modelo mais fraco perdeu mais, e isso importa para quem pensa em usar
+um juiz pequeno e barato.
 
-Na rubrica, o nível 2 é o que mais me interessava: a resposta que fala do
-assunto sem responder. "Aceitamos várias formas de pagamento",
-para quem perguntou se aceita PIX parcelado. É o tipo de resposta que um
-chatbot genérico produz o tempo todo, e que uma checagem por palavra-chave
-daria como relevante.
+O nível que eu mais queria pegar era o 2, a resposta que fala do assunto sem
+responder: "Aceitamos várias formas de pagamento" para quem perguntou se a
+loja aceita PIX parcelado. Chatbot genérico produz esse tipo de resposta o
+tempo todo, e uma checagem por palavra-chave a daria como relevante.
 
-O score que vai para a métrica é `(nota - 1) / 4`, de 0 a 1, para ficar na
-mesma escala dos outros avaliadores. É `pass` com nota 3 ou mais.
+A nota vira score pela conta `(nota - 1) / 4`, que põe o resultado entre 0 e
+1, na mesma escala dos outros avaliadores. O corte de `pass` é a nota 3:
+resposta parcial ainda passa, e reprova o que fica em 2 ou 1.
 
 ### Justificativa antes da nota
 
@@ -321,7 +322,7 @@ de sistema para o usuário. (Se o prompt de sistema tem texto que o modelo
 deve repetir, como uma FAQ, o serviço pode ser liberado desse avaliador.)
 
 O prompt do juiz também precisa ser gerenciado, e com mais rigor que o das
-aplicações, porque ele é a régua. Mudar uma palavra na rubrica pode mover
+aplicações, porque ele é a régua. Mudar uma palavra na escala pode mover
 todas as notas, e o painel mostraria uma melhora ou piora que não aconteceu.
 Por isso o prompt mora no código, com versão: mudança no que é detectado
 sobe a versão minor do serviço, e essa versão vai em `service.version` em

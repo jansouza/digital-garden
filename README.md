@@ -12,10 +12,24 @@ Pré-requisitos: Ruby 3.x e Bundler.
 
 ```bash
 bundle install
-bundle exec jekyll serve
+bundle exec jekyll serve --force_polling
 ```
 
 O site ficará disponível em `http://localhost:4000`.
+
+O `--force_polling` faz o Jekyll checar mudanças por polling em vez de
+inotify. Sem ele, o `serve` cai com `INotifyMaxWatchesExceeded` quando o
+limite de inotify da máquina já está tomado (o VS Code consome boa parte).
+
+Se o Ruby do sistema for atualizado e o `bundle` parar com
+`bad interpreter: /usr/bin/ruby3.2`, reinstale o bundler e os atalhos das
+gems na versão nova e rode o `bundle install` de novo:
+
+```bash
+gem install bundler
+gem pristine --all --only-executables
+bundle install
+```
 
 ## Como adicionar conteúdo
 

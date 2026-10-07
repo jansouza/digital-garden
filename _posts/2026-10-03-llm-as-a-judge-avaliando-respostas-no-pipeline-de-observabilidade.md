@@ -39,6 +39,9 @@ avaliador que usa a técnica de LLM-as-a-Judge: um segundo modelo lê a
 conversa e dá uma nota para a resposta. O foco aqui é esse juiz, porque é
 onde estão as decisões menos óbvias.
 
+Para uma visão geral do serviço, da arquitetura aos avaliadores, montei
+também uma [apresentação do llm-eval-otel](https://llm-eval.jansouza.com/).
+
 ![Visão geral do dashboard de avaliação no Grafana, com total de avaliações, reprovações, taxa de reprovação, avaliações por resultado ao longo do tempo e reprovações por avaliador, por serviço e por modelo](/assets/images/openllmetry-eval-lab/dashboard-avaliacao-overview.png)
 
 ## Avaliar fora do caminho da aplicação

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Docs"
+description: "Páginas de referência e documentação dos projetos do garden."
 ---
 
 # Documentação

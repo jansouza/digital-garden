@@ -5,6 +5,7 @@ date: 2026-09-25 10:00:00 -0300
 categories: [homelab]
 tags: [observabilidade, opentelemetry, openllmetry, llm, ia, ia-generativa, finops, prometheus, grafana, homelab, devops]
 stage: growing
+image: /assets/images/openllmetry-cost-lab/dashboard-custo-overview.png
 description: "Continuação do lab de observabilidade para LLMs: cruzando o consumo de token com a tabela de preço de cada modelo para responder quanto a IA generativa está custando, em qual modelo e para qual tarefa."
 ---
 

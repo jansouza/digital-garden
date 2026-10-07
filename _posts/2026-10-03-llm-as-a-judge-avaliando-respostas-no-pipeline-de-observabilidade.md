@@ -5,6 +5,7 @@ date: 2026-10-03 10:00:00 -0300
 categories: [homelab]
 tags: [observabilidade, opentelemetry, openllmetry, llm, ia, ia-generativa, llm-as-a-judge, evals, seguranca, homelab, devops]
 stage: growing
+image: /assets/images/openllmetry-eval-lab/dashboard-avaliacao-overview.png
 description: "Terceira parte do lab de observabilidade para LLMs: um serviço que lê os spans de GenAI no OTel Collector, roda heurísticas de segurança e um LLM como juiz da qualidade das respostas, e devolve o resultado como telemetria ligada ao trace original."
 ---
 

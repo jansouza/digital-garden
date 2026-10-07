@@ -5,6 +5,7 @@ date: 2026-09-22 10:00:00 -0300
 categories: [homelab]
 tags: [observabilidade, opentelemetry, openllmetry, llm, ia, ia-generativa, prometheus, grafana, tempo, homelab, devops]
 stage: growing
+image: /assets/images/openllmetry-lab/dashboard-overview.png
 description: "A conta da IA generativa está chegando. Um lab para medir consumo de token, latência e erros de aplicações que chamam LLMs, com OpenLLMetry, OTel Collector, Grafana Tempo e Prometheus."
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Tutoriais"
+description: "Guias passo a passo sobre as ferramentas e tecnologias que uso no garden."
 ---
 
 # Tutoriais

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Posts"
+description: "Todos os posts do garden de Jan Souza, do mais recente ao mais antigo: SRE, observabilidade, IA generativa, homelab e impressão 3D."
 ---
 
 # Posts

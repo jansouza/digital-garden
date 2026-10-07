@@ -8,14 +8,17 @@ layout: default
       <time datetime="{{ page.date | date_to_xmlschema }}">
         {{ page.date | date: "%d/%m/%Y" }}
       </time>
-      {% if page.author %} · {{ page.author }}{% endif %}
+      {% if page.last_modified_at %}
+      · atualizado em <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%d/%m/%Y" }}</time>
+      {% endif %}
+      · <a href="{{ site.author.url }}" rel="author">{{ page.author | default: site.author.name }}</a>
       · {% include stage-badge.html stage=page.stage %}
     </p>
     {% include tag-list.html tags=page.tags %}
   </header>
 
   <div class="post-content">
-    {{ content }}
+    {{ content | replace: '<img ', '<img loading="lazy" decoding="async" ' }}
   </div>
 
   {% include related-notes.html %}

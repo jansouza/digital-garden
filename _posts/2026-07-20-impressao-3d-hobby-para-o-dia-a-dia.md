@@ -5,6 +5,7 @@ date: 2026-07-20 14:00:00 -0300
 categories: [maker]
 tags: [impressao-3d, maker, hobby, decoracao, bambu-lab]
 stage: growing
+image: /assets/images/3d-print/MVIMG_20260704_111029.jpg
 ---
 
 Já falei aqui sobre o [LabRax, o rack de homelab que imprimi em

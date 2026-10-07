@@ -5,6 +5,7 @@ date: 2024-04-01 10:00:00 -0300
 categories: [ia]
 tags: [ollama, llm, ia-generativa, docker, kubernetes, open-webui]
 stage: mature
+description: "Como rodar LLMs como Gemma, Llama 2 e LLaVA localmente com o Ollama, usando Docker ou Kubernetes, e como consultar os modelos pela API."
 image: /assets/images/ollama/1711881847412.png
 ---
 

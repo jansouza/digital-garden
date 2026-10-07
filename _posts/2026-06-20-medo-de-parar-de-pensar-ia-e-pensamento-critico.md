@@ -5,6 +5,7 @@ date: 2026-06-20 11:00:00 -0300
 categories: [carreira]
 tags: [inteligencia-artificial, desenvolvimento-de-software, programacao, carreira, ia]
 stage: mature
+description: "Uma frase da conversa entre Leandro Karnal e uma IA me fez pensar no risco de terceirizar o raciocínio no desenvolvimento de software."
 ---
 
 Assisti a uma conversa entre Leandro Karnal e uma IA sobre Deus, vaidade e

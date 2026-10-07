@@ -1,8 +1,16 @@
-title: "Garden"
-description: "Um digital garden com notas, tutoriais e documentação"
+# "title" vai no <title> de todas as páginas e no Google;
+# "short_title" é o nome exibido no cabeçalho do site.
+title: "Jan Souza · Digital Garden"
+short_title: "Garden"
+tagline: "SRE, IA generativa, homelab e impressão 3D"
+description: "Um digital garden sobre SRE, observabilidade, IA generativa, homelab e impressão 3D"
 url: "https://garden.jansouza.com"
 baseurl: ""
 lang: "pt-BR"
+
+author:
+  name: Jan Souza
+  url: https://garden.jansouza.com/about/
 
 # Google Analytics 4 Measurement ID (formato G-XXXXXXXXXX)
 # Crie a propriedade em https://analytics.google.com e substitua abaixo
@@ -10,12 +18,10 @@ google_analytics: "G-0LYVB8R8BC"
 
 logo: /assets/images/social/og-image.png
 
-twitter:
-  card: summary_large_image
-
 social:
   name: Jan Souza
   links:
+    - https://jansouza.com
     - https://github.com/jansouza
     - https://www.linkedin.com/in/jansouza
 

@@ -1,6 +1,5 @@
 @import "normalize";
 @import "rouge-github";
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 
 $bg: #050b06;
 $bg-raised: #0b1610;
@@ -46,7 +45,8 @@ header {
 
 header .inner > a { color: inherit; }
 
-header h1 {
+header h1,
+header .site-title {
   width: auto;
   margin-top: 0;
   margin-bottom: 0.2em;
@@ -58,7 +58,8 @@ header h1 {
   text-shadow: 0 0 18px rgba(111, 255, 160, 0.35);
 }
 
-header h2 {
+header h2,
+header .site-tagline {
   width: auto;
   max-width: 540px;
   margin-top: 0;
@@ -71,7 +72,8 @@ header h2 {
   letter-spacing: 0;
 }
 
-header h2::before {
+header h2::before,
+header .site-tagline::before {
   content: "> ";
   color: $accent;
 }
@@ -516,8 +518,8 @@ small {
 
 /* Media Queries */
 @media only screen and (max-width: 767px) {
-  header h1 { font-size: 40px; }
-  header h2 { font-size: 18px; }
+  header h1, header .site-title { font-size: 40px; }
+  header h2, header .site-tagline { font-size: 18px; }
   .social-nav {
     position: static;
     margin-top: 1rem;

@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Sobre"
-description: "Um pouco sobre mim"
+description: "Sou Jan Souza, Consulting Architect com mais de vinte anos em tecnologia e foco em SRE. Aqui reúno experimentos de homelab, IA e impressão 3D."
 tags: [apresentação, maker, sre, ia]
 stage: growing
 ---

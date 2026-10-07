@@ -5,6 +5,7 @@ date: 2024-03-01 10:00:00 -0300
 categories: [homelab]
 tags: [raspberry-pi, kubernetes, k3s, home-assistant, automacao-residencial, homelab]
 stage: growing
+description: "Parte 1 de um cluster K3s com três Raspberry Pi 5 para automação residencial com Home Assistant e Node-RED: hardware e instalação passo a passo."
 image: /assets/images/k8s-raspberry/1709237025850.jpeg
 ---
 

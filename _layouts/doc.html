@@ -10,7 +10,7 @@ layout: default
   </header>
 
   <div class="doc-content">
-    {{ content }}
+    {{ content | replace: '<img ', '<img loading="lazy" decoding="async" ' }}
   </div>
 
   {% include related-notes.html %}

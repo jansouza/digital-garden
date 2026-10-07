@@ -1,6 +1,5 @@
 ---
 layout: default
-title: "Início"
 ---
 
 Bem-vindo ao meu digital garden, onde cultivo notas, tutoriais e

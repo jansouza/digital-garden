@@ -4,7 +4,8 @@ title: "Observabilidade para LLMs: medindo tokens antes de falar em custo"
 date: 2026-09-22 10:00:00 -0300
 categories: [homelab]
 tags: [observabilidade, opentelemetry, openllmetry, llm, ia, ia-generativa, prometheus, grafana, tempo, homelab, devops]
-stage: growing
+stage: mature
+last_modified_at: 2026-10-28
 image: /assets/images/openllmetry-lab/dashboard-overview.png
 description: "A conta da IA generativa está chegando. Um lab para medir consumo de token, latência e erros de aplicações que chamam LLMs, com OpenLLMetry, OTel Collector, Grafana Tempo e Prometheus."
 ---
@@ -272,3 +273,6 @@ recording rule no Prometheus, seja expondo o preço como métrica auxiliar e
 deixando o Grafana fazer a conta. Hoje o dashboard responde "quanto token
 esse modelo consumiu"; falta responder "quanto isso custou" e "esse modelo
 caro compensa".
+
+> **Atualização:** esse passo virou o post seguinte,
+> [Do token ao dólar: estimando o custo da IA generativa]({% post_url 2026-09-25-do-token-ao-dolar-custo-da-ia-generativa %}).

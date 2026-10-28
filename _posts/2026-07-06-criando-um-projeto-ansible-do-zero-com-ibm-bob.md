@@ -79,4 +79,4 @@ automação de infraestrutura com qualidade, gerada com esforço mínimo.
 
 *Publicado originalmente no
 [LinkedIn](https://www.linkedin.com/posts/jansouza_ibm-devops-ansible-activity-7470147488352759808-3JBX)
-em 20 de julho de 2026.*
+em 6 de julho de 2026.*

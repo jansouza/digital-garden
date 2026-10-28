@@ -4,7 +4,7 @@ title: "Impressão 3D no dia a dia: de peças de decoração a utilidades da cas
 date: 2026-07-20 14:00:00 -0300
 categories: [maker]
 tags: [impressao-3d, maker, hobby, decoracao, bambu-lab]
-stage: growing
+stage: mature
 image: /assets/images/3d-print/MVIMG_20260704_111029.jpg
 ---
 

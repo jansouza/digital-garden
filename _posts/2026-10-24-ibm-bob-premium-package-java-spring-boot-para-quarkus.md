@@ -4,7 +4,7 @@ title: "IBM Bob Premium Package for Java: migrando um projeto Spring Boot para Q
 date: 2026-10-24 10:00:00 -0300
 categories: [devops]
 tags: [ibm, ibm-bob, java, spring-boot, quarkus, modernizacao, ia, devops]
-stage: seed
+stage: growing
 image: /assets/images/ibm-bob-premium-package-java-quarkus/ibm-bob-premium-package-java-welcome.png
 description: "Usei o IBM Bob Premium Package for Java para migrar uma API Spring Boot para Quarkus: como foi o processo, o que mudou no caminho, o resultado do benchmark e o que ainda ficou pendente."
 ---

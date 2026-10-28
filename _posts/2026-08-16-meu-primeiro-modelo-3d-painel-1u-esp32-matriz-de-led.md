@@ -4,7 +4,7 @@ title: "Meu primeiro modelo 3D do zero: um painel 1U para ESP32 e matriz de LED"
 date: 2026-08-16 09:00:00 -0300
 categories: [maker]
 tags: [impressao-3d, maker, esp32, makerworld, homelab, labrax, max7219, dht22, bambu-lab, hardware]
-stage: seed
+stage: growing
 image: /assets/images/led-matrix-panel-model/photo_cover_4x3-v2.jpeg
 description: "Não achei no MakerWorld um painel 1U para ESP32 — só para ESP8266. Desenhei meu primeiro modelo 3D do zero, com espaço para MAX7219, buzzer e DHT22."
 ---

@@ -4,7 +4,7 @@ title: "Como utilizei o IBM Bob para criar um firmware Arduino/ESP32"
 date: 2026-08-03 09:00:00 -0300
 categories: [homelab]
 tags: [esp32, iot, led, wifi, max7219, hardware, homelab, labrax, ibm-bob, ia, devops]
-stage: seed
+stage: growing
 image: /assets/images/ibm-bob-matrix-clock/ibm-bob-matrix-clock.jpg
 description: "Um relógio de matriz de LED com ESP32 + MAX7219 que mostra hora, clima, cotações e mensagens — com o firmware inteiro escrito junto com o IBM Bob, incluindo interface web e 251 testes."
 ---

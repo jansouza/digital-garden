@@ -4,7 +4,7 @@ title: "LGPD e IA generativa: o que a liderança deve cobrar da tecnologia"
 date: 2026-10-21 10:00:00 -0300
 categories: [ia]
 tags: [lgpd, privacidade, ia-generativa, llm, ia, seguranca, observabilidade, bancos]
-stage: seed
+stage: growing
 image: /assets/images/lgpd-ia-generativa/diagrama-lgpd-ia.png
 description: "Por onde o dado pessoal escapa numa aplicação de IA generativa (o chat, o log e o contexto do agente), três controles que a liderança pode cobrar da área de tecnologia (um mapa de provedores e países, minimização antes do envio e evidência contínua) e o que muda pela LGPD quando o modelo roda nos Estados Unidos."
 ---

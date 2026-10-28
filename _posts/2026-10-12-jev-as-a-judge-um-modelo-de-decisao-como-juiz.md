@@ -4,7 +4,7 @@ title: "Jev-as-a-Judge: um modelo de decisão como juiz das respostas"
 date: 2026-10-12 10:00:00 -0300
 categories: [homelab]
 tags: [observabilidade, opentelemetry, llm, ia, ia-generativa, llm-as-a-judge, jev, typesafe, evals, seguranca, homelab]
-stage: seed
+stage: growing
 image: /assets/images/openllmetry-eval-lab/dashboard-avaliacao-jev.png
 description: "Quarta parte do lab de observabilidade para LLMs: quatro avaliadores respondidos pelo Jev, um modelo que não gera texto e devolve probabilidades e notas, todos numa única requisição por span. Como encaixei o Jev no llm-eval-otel e o que ainda falta medir."
 ---

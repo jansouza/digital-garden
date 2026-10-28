@@ -4,7 +4,8 @@ title: "Impulsionando a Automação Residencial: Criando um Cluster Kubernetes c
 date: 2024-03-01 10:00:00 -0300
 categories: [homelab]
 tags: [raspberry-pi, kubernetes, k3s, home-assistant, automacao-residencial, homelab]
-stage: growing
+stage: mature
+last_modified_at: 2026-10-28
 description: "Parte 1 de um cluster K3s com três Raspberry Pi 5 para automação residencial com Home Assistant e Node-RED: hardware e instalação passo a passo."
 image: /assets/images/k8s-raspberry/1709237025850.jpeg
 ---
@@ -183,6 +184,11 @@ Com tudo pronto, os três nodes aparecem com status `Ready`:
 O cluster Kubernetes está instalado e operacional. Nos próximos artigos, vou
 demonstrar a criação da monitoração do cluster e o deploy dos componentes para
 o Home Assistant.
+
+> **Atualização (outubro de 2026):** as próximas partes não saíram. O cluster
+> mudou desde então: ganhou mini PCs Beelink e foi para um rack impresso em 3D,
+> como contei em
+> [Homelab: subindo de nível com o LabRax]({% post_url 2026-07-12-homelab-labrax-rack-impresso-em-3d %}).
 
 ---
 

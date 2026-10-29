@@ -1,0 +1,12 @@
+{% assign t = site.data.i18n[page.lang] | default: site.data.i18n[site.lang] %}
+{% assign lang = page.lang | default: site.lang %}
+{% assign lang_posts = site.posts | where: "lang", lang %}
+<ul class="post-list">
+  {% for post in lang_posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <small>— {{ post.date | date: t.date_format }}</small>
+      {% if post.excerpt %}<p>{{ post.excerpt | strip_html | truncate: 160 }}</p>{% endif %}
+    </li>
+  {% endfor %}
+</ul>

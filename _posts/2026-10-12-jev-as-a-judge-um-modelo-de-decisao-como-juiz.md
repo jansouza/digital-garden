@@ -7,6 +7,7 @@ tags: [observabilidade, opentelemetry, llm, ia, ia-generativa, llm-as-a-judge, j
 stage: growing
 image: /assets/images/openllmetry-eval-lab/dashboard-avaliacao-jev.png
 description: "Quarta parte do lab de observabilidade para LLMs: quatro avaliadores respondidos pelo Jev, um modelo que não gera texto e devolve probabilidades e notas, todos numa única requisição por span. Como encaixei o Jev no llm-eval-otel e o que ainda falta medir."
+translation_key: jev-as-a-judge-um-modelo-de-decisao-como-juiz
 ---
 
 No [post anterior]({% post_url 2026-10-03-llm-as-a-judge-avaliando-respostas-no-pipeline-de-observabilidade %})

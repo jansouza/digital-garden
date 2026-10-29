@@ -1,5 +1,6 @@
+{% assign t = site.data.i18n[page.lang] | default: site.data.i18n[site.lang] %}
 <footer>
   <div class="inner">
-    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }} · {{ site.description }}</p>
+    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }} · {{ t.description }}</p>
   </div>
 </footer>

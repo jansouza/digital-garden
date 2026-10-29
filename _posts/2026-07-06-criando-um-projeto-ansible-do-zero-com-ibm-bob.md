@@ -5,6 +5,7 @@ date: 2026-07-06 10:00:00 -0300
 categories: [devops]
 tags: [ibm, devops, ansible, ia, automacao, ibm-bob]
 stage: mature
+translation_key: criando-um-projeto-ansible-do-zero-com-ibm-bob
 ---
 
 Nos últimos meses venho testando assistentes de IA para tarefas de DevOps, e

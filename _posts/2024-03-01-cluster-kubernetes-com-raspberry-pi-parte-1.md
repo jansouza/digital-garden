@@ -8,6 +8,7 @@ stage: mature
 last_modified_at: 2026-10-28
 description: "Parte 1 de um cluster K3s com três Raspberry Pi 5 para automação residencial com Home Assistant e Node-RED: hardware e instalação passo a passo."
 image: /assets/images/k8s-raspberry/1709237025850.jpeg
+translation_key: cluster-kubernetes-com-raspberry-pi-parte-1
 ---
 
 ## Introdução

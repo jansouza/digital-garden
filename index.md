@@ -1,5 +1,6 @@
 ---
 layout: default
+translation_key: home
 ---
 
 Bem-vindo ao meu digital garden, onde cultivo notas, tutoriais e
@@ -16,36 +17,11 @@ e esquecidas.
 - 📖 **[Docs](/docs/)** — documentação de referência
 - 🏷️ **[Tags](/tags/)** — todas as notas agrupadas por tema
 
-## Sementes recém-plantadas
+{% include stage-section.html stage="seed" title="Sementes recém-plantadas"
+   intro="Notas novas, ainda em elaboração" %}
 
-Notas novas, ainda em elaboração — {% include stage-badge.html stage="seed" %}
+{% include stage-section.html stage="growing" title="Crescendo"
+   intro="Notas em evolução, revisitadas e atualizadas com frequência" %}
 
-{% assign all_notes = site.posts | concat: site.tutorials | concat: site.docs %}
-{% assign seeds = all_notes | where: "stage", "seed" %}
-<ul>
-  {% for note in seeds %}
-    <li><a href="{{ note.url | relative_url }}">{{ note.title }}</a></li>
-  {% endfor %}
-</ul>
-
-## Crescendo
-
-Notas em evolução, revisitadas e atualizadas com frequência — {% include stage-badge.html stage="growing" %}
-
-{% assign growing = all_notes | where: "stage", "growing" %}
-<ul>
-  {% for note in growing %}
-    <li><a href="{{ note.url | relative_url }}">{{ note.title }}</a></li>
-  {% endfor %}
-</ul>
-
-## Notas consolidadas
-
-Conteúdo mais maduro e estável — {% include stage-badge.html stage="mature" %}
-
-{% assign mature = all_notes | where: "stage", "mature" %}
-<ul>
-  {% for note in mature %}
-    <li><a href="{{ note.url | relative_url }}">{{ note.title }}</a></li>
-  {% endfor %}
-</ul>
+{% include stage-section.html stage="mature" title="Notas consolidadas"
+   intro="Conteúdo mais maduro e estável" %}

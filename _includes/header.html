@@ -1,13 +1,23 @@
+{% assign t = site.data.i18n[page.lang] | default: site.data.i18n[site.lang] %}
 {% comment %} Só a home usa o nome do site como h1; nas outras páginas o h1 é o título da nota. {% endcomment %}
-{% if page.url == "/" %}{% assign site_title_tag = "h1" %}{% else %}{% assign site_title_tag = "p" %}{% endif %}
-<a href="{{ '/' | relative_url }}"><{{ site_title_tag }} class="site-title">🌱 {{ site.short_title | default: site.title }}</{{ site_title_tag }}></a>
-<p class="site-tagline">{{ site.description }}</p>
+{% if page.url == t.home_url %}{% assign site_title_tag = "h1" %}{% else %}{% assign site_title_tag = "p" %}{% endif %}
+{% comment %} PT e EN sempre visíveis; o link leva à tradução da página ou, sem ela, à home do outro idioma. {% endcomment %}
+{% if translation %}{% assign other_lang_url = translation.url %}{% else %}{% assign other_lang_url = t.other_home_url %}{% endif %}
+<nav class="lang-nav" aria-label="{{ t.lang_nav_label }}">
+  {% if page.lang == "en" %}
+  <a href="{{ other_lang_url | relative_url }}" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+  <span class="current" lang="en" aria-current="true" title="English">EN</span>
+  {% else %}
+  <span class="current" lang="pt-BR" aria-current="true" title="Português">PT</span>
+  <a href="{{ other_lang_url | relative_url }}" hreflang="en" lang="en" title="English">EN</a>
+  {% endif %}
+</nav>
+<a href="{{ t.home_url | relative_url }}"><{{ site_title_tag }} class="site-title">🌱 {{ site.short_title | default: site.title }}</{{ site_title_tag }}></a>
+<p class="site-tagline">{{ t.description }}</p>
 <nav class="site-nav">
-  <a href="{{ '/posts/' | relative_url }}">Posts</a>
-  <a href="{{ '/tutorials/' | relative_url }}">Tutoriais</a>
-  <a href="{{ '/docs/' | relative_url }}">Docs</a>
-  <a href="{{ '/tags/' | relative_url }}">Tags</a>
-  <a href="{{ '/about/' | relative_url }}">Sobre</a>
+  {% for item in t.nav %}
+  <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+  {% endfor %}
 </nav>
 <nav class="social-nav">
   <a href="https://jansouza.com" aria-label="Site jansouza.com" title="jansouza.com">

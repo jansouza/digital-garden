@@ -5,6 +5,7 @@ date: 2025-06-07 10:00:00 -0300
 categories: [devops]
 tags: [design-patterns, python, devops, aws, resiliencia]
 stage: mature
+translation_key: design-patterns-no-time-de-operacoes
 ---
 
 Tradicionalmente, técnicas de design de software são associadas ao

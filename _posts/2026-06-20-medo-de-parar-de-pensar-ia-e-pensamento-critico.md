@@ -6,6 +6,7 @@ categories: [carreira]
 tags: [inteligencia-artificial, desenvolvimento-de-software, programacao, carreira, ia]
 stage: mature
 description: "Uma frase da conversa entre Leandro Karnal e uma IA me fez pensar no risco de terceirizar o raciocínio no desenvolvimento de software."
+translation_key: medo-de-parar-de-pensar-ia-e-pensamento-critico
 ---
 
 Assisti a uma conversa entre Leandro Karnal e uma IA sobre Deus, vaidade e

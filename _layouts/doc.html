@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+{% assign t = site.data.i18n[page.lang] | default: site.data.i18n[site.lang] %}
 <article class="doc">
   <header class="doc-header">
     <h1>{{ page.title }}</h1>
@@ -15,5 +16,5 @@ layout: default
 
   {% include related-notes.html %}
 
-  <p><a href="{{ '/' | relative_url }}">&larr; Voltar para o início</a></p>
+  <p><a href="{{ t.home_url | relative_url }}">&larr; {{ t.back_to_home }}</a></p>
 </article>

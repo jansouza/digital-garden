@@ -1,17 +1,18 @@
 ---
 layout: default
 ---
+{% assign t = site.data.i18n[page.lang] | default: site.data.i18n[site.lang] %}
 <article class="post">
   <header class="post-header">
     <h1>{{ page.title }}</h1>
     <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: "%d/%m/%Y" }}
+        {{ page.date | date: t.date_format }}
       </time>
       {% if page.last_modified_at %}
-      · atualizado em <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%d/%m/%Y" }}</time>
+      · {{ t.updated_on }} <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: t.date_format }}</time>
       {% endif %}
-      · <a href="{{ site.author.url }}" rel="author">{{ page.author | default: site.author.name }}</a>
+      · <a href="{{ t.about_url | absolute_url }}" rel="author">{{ page.author | default: site.author.name }}</a>
       · {% include stage-badge.html stage=page.stage %}
     </p>
     {% include tag-list.html tags=page.tags %}
@@ -23,5 +24,5 @@ layout: default
 
   {% include related-notes.html %}
 
-  <p><a href="{{ '/posts/' | relative_url }}">&larr; Voltar para os posts</a></p>
+  <p><a href="{{ t.posts_url | relative_url }}">&larr; {{ t.back_to_posts }}</a></p>
 </article>

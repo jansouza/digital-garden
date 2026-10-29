@@ -5,6 +5,7 @@ date: 2026-07-19 10:00:00 -0300
 categories: [geral]
 tags: [apresentação, digital-garden, maker, docs-as-code]
 stage: mature
+translation_key: bem-vindo-ao-garden
 ---
 
 No meu [último post no LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7479881994135560192/){:target="_blank"},

@@ -6,6 +6,7 @@ categories: [maker]
 tags: [impressao-3d, maker, hobby, decoracao, bambu-lab]
 stage: mature
 image: /assets/images/3d-print/MVIMG_20260704_111029.jpg
+translation_key: impressao-3d-hobby-para-o-dia-a-dia
 ---
 
 Já falei aqui sobre o [LabRax, o rack de homelab que imprimi em

@@ -46,6 +46,8 @@ defaults:
       path: ""
     values:
       image: /assets/images/social/og-image.png
+      # Toda nota tem lang explícito, para as listas filtrarem com where.
+      lang: "pt-BR"
   - scope:
       path: ""
       type: "posts"
@@ -61,6 +63,29 @@ defaults:
       type: "docs"
     values:
       layout: "doc"
+  # Versões em inglês: _posts/en/, _tutorials/en/, _docs/en/ e as páginas em en/.
+  - scope:
+      path: "en"
+    values:
+      lang: "en"
+  - scope:
+      path: "_posts/en"
+      type: "posts"
+    values:
+      lang: "en"
+      permalink: /en/:categories/:year/:month/:day/:title:output_ext
+  - scope:
+      path: "_tutorials/en"
+      type: "tutorials"
+    values:
+      lang: "en"
+      permalink: /en/tutorials/:name/
+  - scope:
+      path: "_docs/en"
+      type: "docs"
+    values:
+      lang: "en"
+      permalink: /en/docs/:name/
 
 # Arquivos/pastas excluídos do build
 exclude:
@@ -69,3 +94,4 @@ exclude:
   - vendor
   - README.md
   - AGENTS.md
+  - docs/plans

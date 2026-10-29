@@ -1,7 +1,8 @@
+{% assign t = site.data.i18n[page.lang] | default: site.data.i18n[site.lang] %}
 {% if include.tags and include.tags.size > 0 %}
 <ul class="tag-list">
   {% for tag in include.tags %}
-    <li><a href="{{ '/tags/' | relative_url }}#{{ tag | slugify: 'latin' }}">#{{ tag }}</a></li>
+    <li><a href="{{ t.tags_url | relative_url }}#{{ tag | slugify: 'latin' }}">#{{ tag }}</a></li>
   {% endfor %}
 </ul>
 {% endif %}

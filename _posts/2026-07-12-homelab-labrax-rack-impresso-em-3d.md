@@ -7,6 +7,7 @@ tags: [homelab, kubernetes, k3s, impressao-3d, maker, devops, sre]
 stage: growing
 description: "Imprimi em PETG o LabRax, rack modular de Michael Klements, para organizar o homelab e expandir o cluster K3s com mini PCs Beelink."
 image: /assets/images/homelab-labrax/labrax-rack-impressora-3d.jpeg
+translation_key: homelab-labrax-rack-impresso-em-3d
 ---
 
 > Publicado originalmente no

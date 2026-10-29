@@ -7,6 +7,7 @@ tags: [impressao-3d, maker, esp32, makerworld, homelab, labrax, max7219, dht22, 
 stage: growing
 image: /assets/images/led-matrix-panel-model/photo_cover_4x3-v2.jpeg
 description: "Não achei no MakerWorld um painel 1U para ESP32 — só para ESP8266. Desenhei meu primeiro modelo 3D do zero, com espaço para MAX7219, buzzer e DHT22."
+translation_key: meu-primeiro-modelo-3d-painel-1u-esp32-matriz-de-led
 ---
 
 ![Bancada com ESP32, módulo buzzer, sensor DHT22, paquímetro digital marcando 22,46 mm e as peças do painel recém-impressas, com a impressão em andamento na tela ao fundo](/assets/images/led-matrix-panel-model/IMG_20260816_222519.jpg)

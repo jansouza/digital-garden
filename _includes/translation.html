@@ -1,0 +1,12 @@
+{% comment %}
+  Acha a outra versão da página pelo translation_key e guarda em `translation`
+  (vazio quando não há). Incluído no <head> do default.html; o cabeçalho reusa.
+{% endcomment %}
+{% assign translation = nil %}
+{% if page.translation_key %}
+  {% assign all_versions = site.posts | concat: site.tutorials | concat: site.docs | concat: site.pages %}
+  {% assign versions = all_versions | where: "translation_key", page.translation_key %}
+  {% for version in versions %}
+    {% if version.lang != page.lang %}{% assign translation = version %}{% endif %}
+  {% endfor %}
+{% endif %}

@@ -8,6 +8,7 @@ stage: mature
 last_modified_at: 2026-10-28
 image: /assets/images/openllmetry-lab/dashboard-overview.png
 description: "A conta da IA generativa está chegando. Um lab para medir consumo de token, latência e erros de aplicações que chamam LLMs, com OpenLLMetry, OTel Collector, Grafana Tempo e Prometheus."
+translation_key: observabilidade-para-llms-com-openllmetry-no-homelab
 ---
 
 Adotar IA generativa no trabalho virou pauta em quase toda empresa, mas a

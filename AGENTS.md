@@ -45,18 +45,23 @@ Limites que vêm do GitHub Pages:
 | Caminho | Conteúdo |
 |---|---|
 | `_posts/` | Posts, no formato `YYYY-MM-DD-slug.md`, com layout `post` |
+| `_posts/en/` | Versões em inglês dos posts, URL `/en/<categoria>/...` |
 | `_tutorials/` | Tutoriais, URL `/tutorials/<arquivo>/`, layout `doc` |
 | `_docs/` | Documentação de referência, URL `/docs/<arquivo>/`, layout `doc` |
 | `_drafts/` | Rascunhos e roteiros, não publicados |
 | `_linkedin/` | Versões dos posts para o LinkedIn, ignoradas pelo git |
 | `_layouts/` | `default`, `post` e `doc` |
-| `_includes/` | `sidebar`, `stage-badge`, `related-notes`, `tag-list`, `header`, `footer` |
+| `_includes/` | `sidebar`, `stage-badge`, `related-notes`, `tag-list`, `header`, `footer`, `translation`, as listas compartilhadas pelos dois idiomas (`post-list`, `tag-index`, `stage-section`) e o template dos feeds (`atom-feed.xml`) |
+| `_data/i18n.yml` | Textos da interface (menu, datas, stage, rótulos) em `pt-BR` e `en` |
 | `_sass/` | Estilos do site (`garden-architect.scss`) |
 | `assets/images/<pasta-do-post>/` | Imagens, uma pasta por post (em geral o slug) |
 | `assets/videos/<pasta-do-post>/` | Vídeos, uma pasta por post |
 | `assets/js/` | `carousel.js` e `lightbox.js` |
 | `index.md` | Home |
 | `posts/`, `tutorials/`, `docs/`, `tags/`, `about/` | Índices de cada seção e a página Sobre |
+| `en/` | Home, posts, tags e Sobre em inglês, e o feed `en/feed.xml` |
+| `feed.xml` | Feed dos posts em português (substitui o gerado pelo `jekyll-feed`) |
+| `docs/plans/` | Planos de funcionalidades, fora do build |
 
 ## Posts
 
@@ -99,7 +104,11 @@ image: /assets/images/openllmetry-cost-lab/dashboard-custo-overview.png
 - `description`: sem ela, o SEO usa o começo do texto.
 - `image`: capa usada na prévia de compartilhamento. Sem ela, vale
   `/assets/images/social/og-image.png`.
-- `lang: en`: só em post escrito em inglês.
+- `translation_key`: só em post que tem versão em inglês. Veja
+  [Versão em inglês](#versão-em-inglês).
+- `lang: en`: só em post em inglês que fica fora de `_posts/en/`, como o
+  `2022-06-21-jenkins-cicd-using-terraform-in-azure.md`, que não tem versão
+  em português. Em `_posts/en/` e `en/` o `_config.yml` já põe o `lang`.
 - `last_modified_at: AAAA-MM-DD`: entra quando o conteúdo de um post já
   publicado muda (seção nova, nota de atualização, mudança de stage causada
   por mudança no texto). O layout mostra "atualizado em".
@@ -170,6 +179,83 @@ essa referência.
 Usam `title`, `description`, `tags` e `stage`, sem `date`. O layout `doc` só
 mostra o badge quando `stage` está preenchido.
 
+## Versão em inglês
+
+O site tem uma seção `/en/` com interface em inglês. Todo post ganha versão
+em inglês: o original é escrito em português, e a tradução vai para a
+`main` junto com ele. Ao criar um post, crie também a versão em inglês
+seguindo as regras abaixo. Tutoriais e docs continuam só em português, a
+menos que o autor peça.
+
+### Como funciona
+
+- Toda nota tem `lang`. O `_config.yml` põe `pt-BR` em tudo e `en` no que
+  está em `_posts/en/`, `_tutorials/en/`, `_docs/en/` e `en/`.
+- Layouts e includes pegam os textos da interface em `_data/i18n.yml` pelo
+  `lang` da página. Texto fixo novo na interface entra lá, nos dois idiomas.
+- Home, posts, tags, sidebar, notas relacionadas e feeds mostram só as notas
+  do idioma da página.
+- As duas versões de uma nota têm o mesmo `translation_key`. Com ele, o link
+  de idioma do cabeçalho leva à outra versão e o `<head>` ganha `hreflang`.
+  Sem tradução, o link leva à home do outro idioma.
+- Os feeds são `feed.xml` (português) e `en/feed.xml` (inglês), feitos com
+  `_includes/atom-feed.xml`. Como existe um `feed.xml` na raiz, o
+  `jekyll-feed` não gera o dele.
+
+### Arquivo e front matter
+
+- O arquivo fica em `_posts/en/`, com a mesma data do original e slug em
+  inglês: `_posts/en/2026-09-25-from-token-to-dollar.md`. A URL sai
+  `/en/<categoria>/<ano>/<mês>/<dia>/<slug>.html`.
+- `categories`, `tags`, `stage` e `image` são os mesmos do original.
+  Categorias e tags são identificadores e continuam em português.
+- `title` e `description` em inglês. A `description` é obrigatória, porque
+  sem ela o SEO cai na descrição do site, que é em português.
+- O `translation_key` vai nas duas versões, com o slug do post em
+  português: `translation_key: do-token-ao-dolar-custo-da-ia-generativa`.
+- Link para outro post: `{% post_url en/YYYY-MM-DD-slug %}` quando a versão
+  em inglês existe, senão o `post_url` do original em português.
+- Tutorial e doc em inglês ficam em `_tutorials/en/` e `_docs/en/`, com URL
+  `/en/tutorials/<arquivo>/` e `/en/docs/<arquivo>/`. Quando o primeiro
+  entrar, acrescente o item no `nav` do `en` em `_data/i18n.yml` e crie o
+  índice em `en/tutorials/` ou `en/docs/`.
+
+### Tradução
+
+- O agente rascunha a tradução a partir do post em português. Nada vai para
+  a `main` sem revisão do autor.
+- Mantenha a voz do autor: primeira pessoa, tom de conversa com um colega
+  técnico, frases do mesmo tamanho. Não acrescente nem tire fato, número,
+  opinião ou exemplo.
+- Código, comandos, nomes de arquivo e saídas de terminal ficam iguais. Só
+  os comentários dentro do código são traduzidos.
+- Imagens são as mesmas do original. O texto alternativo e as legendas são
+  traduzidos.
+- Um post em português com espaço reservado não ganha tradução até a seção
+  ser escrita.
+- Sigla ou termo brasileiro que um leitor de fora não conhece ganha uma
+  explicação curta na primeira menção: "the LGPD (Brazil's General Data
+  Protection Law)", "CPF (the Brazilian taxpayer ID)".
+- Link externo para conteúdo em português leva "(in Portuguese)" depois.
+- O rodapé de post republicado do LinkedIn vira:
+
+  ```markdown
+  *Originally published in Portuguese on
+  [LinkedIn](https://www.linkedin.com/...)
+  on July 6, 2026.*
+  ```
+- Nada de clichê de texto gerado por IA em inglês: "delve", "game-changer",
+  "in today's fast-paced world", "it's not just X, it's Y", "let's dive in",
+  frase de efeito no fim de cada parágrafo, travessão em toda frase.
+
+### Manter as versões juntas
+
+- Mudou o texto de um post que tem tradução: atualize a versão em inglês na
+  mesma mudança, com o mesmo `last_modified_at`.
+- Mudou o `stage` de um: mude o do outro.
+- Mudou o slug ou a data do original: atualize o `translation_key` e os
+  `post_url` que apontam para ele.
+
 ## Stage
 
 Toda nota (post, tutorial, doc e a página Sobre) tem um `stage` que diz o
@@ -207,14 +293,16 @@ Sem `stage`, o badge mostra Semente.
 
 - No badge do cabeçalho de posts e docs (`_includes/stage-badge.html`).
 - Na sidebar "🌿 Em crescimento", que lista os 5 mais recentes entre `seed` e
-  `growing` (`_includes/sidebar.html`).
-- Na seção "Sementes recém-plantadas" da home, que lista todos os `seed`
-  (`index.md`).
+  `growing` do idioma da página (`_includes/sidebar.html`).
+- Nas seções da home, uma por stage, que somem quando não há nota
+  (`_includes/stage-section.html`, usado em `index.md` e `en/index.md`).
+- Em inglês, os nomes são Seedling, Growing e Evergreen
+  (`_data/i18n.yml`).
 
 ### Revisar o stage de todas as notas
 
 ```bash
-grep -rn "^stage:" _posts _tutorials _docs about
+grep -rn "^stage:" _posts _tutorials _docs about en
 grep -n -i -E "próximos passos|o que falta|em breve|pendente|ESPAÇO RESERVADO" _posts/*.md
 ```
 
@@ -229,6 +317,7 @@ grep -n -i -E "próximos passos|o que falta|em breve|pendente|ESPAÇO RESERVADO"
 - Não invente fato, número, resultado ou experiência. Se faltar um dado,
   pergunte ao autor ou deixe um espaço reservado.
 - Em revisão, mude o que foi pedido e preserve o resto do texto do autor.
+- Texto em inglês segue as regras de [Versão em inglês](#versão-em-inglês).
 
 ## Git
 

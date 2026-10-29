@@ -1,0 +1,19 @@
+{% comment %}
+  Seção da home com as notas de um stage no idioma da página. Sai em Markdown
+  (a página é .md) e some quando não há nota.
+  Parâmetros: stage, title, intro.
+{% endcomment %}
+{% assign lang = page.lang | default: site.lang %}
+{% assign all_notes = site.posts | concat: site.tutorials | concat: site.docs | where: "lang", lang %}
+{% assign stage_notes = all_notes | where: "stage", include.stage %}
+{% if stage_notes.size > 0 %}
+## {{ include.title }}
+
+{{ include.intro }} — {% include stage-badge.html stage=include.stage %}
+
+<ul>
+  {% for note in stage_notes %}
+    <li><a href="{{ note.url | relative_url }}">{{ note.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}

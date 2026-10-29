@@ -1,16 +1,20 @@
-{% assign all_notes = site.posts | concat: site.tutorials | concat: site.docs %}
+{% assign t = site.data.i18n[page.lang] | default: site.data.i18n[site.lang] %}
+{% assign lang = page.lang | default: site.lang %}
+{% assign all_notes = site.posts | concat: site.tutorials | concat: site.docs | where: "lang", lang %}
 {% assign seeds = all_notes | where: "stage", "seed" %}
 {% assign growing = all_notes | where: "stage", "growing" %}
 {% comment %}Jekyll 3.10 não aceita "or" no where_exp, por isso o concat.{% endcomment %}
 {% assign active_notes = seeds | concat: growing | sort: "date" | reverse %}
 
-<p><strong>🌿 Em crescimento</strong></p>
+{% if active_notes.size > 0 %}
+<p><strong>🌿 {{ t.growing_notes }}</strong></p>
 <ul>
   {% for note in active_notes limit: 5 %}
     <li>{% if note.stage == "seed" %}🌱{% else %}🌿{% endif %} <a href="{{ note.url | relative_url }}">{{ note.title }}</a></li>
   {% endfor %}
 </ul>
+{% endif %}
 
-<p><a href="{{ '/tags/' | relative_url }}">Ver todas as tags &rarr;</a></p>
+<p><a href="{{ t.tags_url | relative_url }}">{{ t.all_tags }} &rarr;</a></p>
 
-<p><a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
+<p><a href="{{ t.feed_url | relative_url }}">RSS</a></p>

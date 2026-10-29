@@ -7,6 +7,7 @@ tags: [esp32, iot, led, wifi, max7219, hardware, homelab, labrax, ibm-bob, ia, d
 stage: growing
 image: /assets/images/ibm-bob-matrix-clock/ibm-bob-matrix-clock.jpg
 description: "Um relógio de matriz de LED com ESP32 + MAX7219 que mostra hora, clima, cotações e mensagens — com o firmware inteiro escrito junto com o IBM Bob, incluindo interface web e 251 testes."
+translation_key: como-utilizei-o-ibm-bob-para-criar-um-firmware-arduino-esp32
 ---
 
 ![Smart Matrix Clock: relógio de matriz de LED baseado em ESP32 e MAX7219](/assets/images/ibm-bob-matrix-clock/ibm-bob-matrix-clock.jpg)

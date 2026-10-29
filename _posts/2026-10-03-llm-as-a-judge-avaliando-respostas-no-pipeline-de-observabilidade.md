@@ -7,6 +7,7 @@ tags: [observabilidade, opentelemetry, openllmetry, llm, ia, ia-generativa, llm-
 stage: growing
 image: /assets/images/openllmetry-eval-lab/dashboard-avaliacao-overview.png
 description: "Terceira parte do lab de observabilidade para LLMs: um serviço que lê os spans de GenAI no OTel Collector, roda heurísticas de segurança e um LLM como juiz da qualidade das respostas, e devolve o resultado como telemetria ligada ao trace original."
+translation_key: llm-as-a-judge-avaliando-respostas-no-pipeline-de-observabilidade
 ---
 
 Nos dois posts anteriores eu

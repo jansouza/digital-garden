@@ -1,0 +1,67 @@
+# Textos da interface por idioma. A chave é o `lang` da página
+# (pt-BR por padrão, en nas versões em inglês; veja os defaults do _config.yml).
+# Layouts e includes carregam com:
+#   {% assign t = site.data.i18n[page.lang] | default: site.data.i18n[site.lang] %}
+
+pt-BR:
+  home_url: /
+  posts_url: /posts/
+  tags_url: /tags/
+  about_url: /about/
+  feed_url: /feed.xml
+  description: "Um digital garden sobre SRE, observabilidade, IA generativa, homelab e impressão 3D"
+  date_format: "%d/%m/%Y"
+  nav:
+    - title: Posts
+      url: /posts/
+    - title: Tutoriais
+      url: /tutorials/
+    - title: Docs
+      url: /docs/
+    - title: Tags
+      url: /tags/
+    - title: Sobre
+      url: /about/
+  updated_on: "atualizado em"
+  related_notes: "Notas relacionadas"
+  back_to_posts: "Voltar para os posts"
+  back_to_home: "Voltar para o início"
+  growing_notes: "Em crescimento"
+  all_tags: "Ver todas as tags"
+  stage_title: "Maturidade da nota"
+  stage_labels:
+    seed: "Semente"
+    growing: "Em crescimento"
+    mature: "Consolidada"
+  # Seletor de idioma no topo do cabeçalho
+  lang_nav_label: "Idioma"
+  other_home_url: /en/
+
+en:
+  home_url: /en/
+  posts_url: /en/posts/
+  tags_url: /en/tags/
+  about_url: /en/about/
+  feed_url: /en/feed.xml
+  description: "A digital garden about SRE, observability, generative AI, homelab and 3D printing"
+  date_format: "%b %-d, %Y"
+  nav:
+    - title: Posts
+      url: /en/posts/
+    - title: Tags
+      url: /en/tags/
+    - title: About
+      url: /en/about/
+  updated_on: "updated on"
+  related_notes: "Related notes"
+  back_to_posts: "Back to posts"
+  back_to_home: "Back to home"
+  growing_notes: "Growing"
+  all_tags: "See all tags"
+  stage_title: "Note maturity"
+  stage_labels:
+    seed: "Seedling"
+    growing: "Growing"
+    mature: "Evergreen"
+  lang_nav_label: "Language"
+  other_home_url: /

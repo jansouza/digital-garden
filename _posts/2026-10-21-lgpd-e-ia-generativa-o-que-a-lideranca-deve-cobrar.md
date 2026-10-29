@@ -7,6 +7,7 @@ tags: [lgpd, privacidade, ia-generativa, llm, ia, seguranca, observabilidade, ba
 stage: growing
 image: /assets/images/lgpd-ia-generativa/diagrama-lgpd-ia.png
 description: "Por onde o dado pessoal escapa numa aplicação de IA generativa (o chat, o log e o contexto do agente), três controles que a liderança pode cobrar da área de tecnologia (um mapa de provedores e países, minimização antes do envio e evidência contínua) e o que muda pela LGPD quando o modelo roda nos Estados Unidos."
+translation_key: lgpd-e-ia-generativa-o-que-a-lideranca-deve-cobrar
 ---
 
 Que dado de cliente da sua empresa já foi enviado a um modelo de linguagem,

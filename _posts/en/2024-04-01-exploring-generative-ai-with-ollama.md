@@ -1,0 +1,181 @@
+---
+layout: post
+title: "Exploring generative artificial intelligence with OLLAMA"
+date: 2024-04-01 10:00:00 -0300
+categories: [ia]
+tags: [ollama, llm, ia-generativa, docker, kubernetes, open-webui]
+stage: mature
+description: "How to run LLMs like Gemma, Llama 2 and LLaVA locally with Ollama, using Docker or Kubernetes, and how to query the models through the API."
+image: /assets/images/ollama/1711881847412.png
+translation_key: explorando-inteligencia-artificial-generativa-com-ollama
+---
+
+![Illustration of a face made of characters, representing generative AI](/assets/images/ollama/1711881847412.png)
+
+## Running LLM models locally
+
+You can run LLM models locally on your own computer, such as Google's Gemma,
+Meta's Llama 2, LLaVA for image processing, and so on.
+
+The practical implications of this are huge, especially when developing
+systems that interact with artificial intelligence through APIs.
+
+Imagine building an API in your system that connects directly to an LLM
+hosted locally. That would open up countless possibilities, from
+personalized virtual assistants to highly specialized chatbots.
+
+For example, in a business environment, this API could be integrated into a
+customer support system, letting customers interact with a smart virtual
+assistant to get fast, accurate answers to their questions.
+
+On top of that, being able to run LLM models locally also brings benefits
+in terms of data privacy and security. Sensitive data wouldn't need to be
+shared with external servers, since all the processing would happen inside
+the controlled environment of the computer itself.
+
+## OLLAMA
+
+What makes running LLM models locally possible is the **OLLAMA** framework
+(Open-source Large Language Model Accelerator), open source software built
+to let individuals and organizations run several LLM models on their own
+infrastructure, with full control over the runtime environment.
+
+With OLLAMA, users can deploy and operate LLM models on their own servers.
+This means you no longer have to rely exclusively on cloud services or
+external providers to access the power of these models.
+
+You can interact with OLLAMA through its API or through a web interface
+(very similar to the well-known ChatGPT) called
+[Open-WebUI](https://github.com/open-webui/open-webui).
+
+In this article I'll share the files to deploy OLLAMA and Open-WebUI, both
+for Docker and for Kubernetes.
+
+All the code used in this article is available on GitHub:
+[jansouza/ollama](https://github.com/jansouza/ollama).
+
+## Using Docker
+
+Clone the repository:
+
+```bash
+git clone https://github.com/jansouza/ollama.git
+```
+
+Go into the docker folder and run build.sh:
+
+```bash
+cd docker/
+./build.sh
+```
+
+Or run docker compose:
+
+```bash
+cd docker/
+docker-compose build --no-cache
+docker-compose up -d --force-recreate
+```
+
+## Using Kubernetes
+
+Clone the repository:
+
+```bash
+git clone https://github.com/jansouza/ollama.git
+```
+
+Deploy the OLLAMA files:
+
+```bash
+kubectl apply -f k8s/ollama/volume.yaml
+kubectl apply -f k8s/ollama/deployment.yaml
+kubectl apply -f k8s/ollama/service.yaml
+```
+
+Deploy Open-WebUI:
+
+```bash
+kubectl apply -f k8s/open-webui/volume.yaml
+kubectl apply -f k8s/open-webui/deployment.yaml
+kubectl apply -f k8s/open-webui/service.yaml
+```
+
+The web interface (Open-WebUI) will be available at:
+`http://localhost:8080`
+
+![Open-WebUI home screen](/assets/images/ollama/1711813907971.jpeg)
+
+## Selecting and using models
+
+The first step is to download the model you want. In the example I used the
+Gemma:2b model. However, it's worth noting that I could also have chosen
+Gemma:7b, which has 7 billion parameters. Larger models like Gemma:7b tend
+to give more accurate answers thanks to their greater capacity to
+understand and generate text.
+
+![Downloading the gemma:2b model in the Open-WebUI settings](/assets/images/ollama/1711813907922.jpeg)
+
+When choosing between models, it's important to weigh accuracy against
+efficiency. Larger models usually need more computing resources and
+processing time for inference, while smaller models can be faster and
+better suited to certain applications on systems with limited resources.
+
+With the model downloaded, you can already chat with it through the
+interface:
+
+![Conversation with the gemma:2b model in Open-WebUI](/assets/images/ollama/1711813902640.jpeg)
+
+## Interacting with the API
+
+One of OLLAMA's main advantages is its accessible, easy-to-use API, which
+lets you interact with large language models (LLMs) simply and
+efficiently. With the OLLAMA API, developers can easily integrate the
+generative capabilities of LLMs into their own applications.
+
+Interacting with the OLLAMA API is intuitive and straightforward.
+Developers can send HTTP requests to the API specifying the input text and
+any additional parameters they want, such as the model size or the
+sampling temperature. In response, the API returns the text generated by
+the model, so developers can easily add this functionality to their
+applications.
+
+Being able to interact with the OLLAMA API opens up a world of
+possibilities for building AI-based applications. From chatbots and virtual
+assistants to content generation and text analysis tools, developers can
+create a wide range of innovative, intelligent solutions with access to
+OLLAMA's LLMs through the API.
+
+### Request examples
+
+Basic example:
+
+```bash
+curl -X POST http://localhost:11434/api/generate -d '{
+  "model": "gemma:2b",
+  "prompt": "Why is the sky blue?"
+}'
+```
+
+Chat example:
+
+```bash
+curl http://localhost:11434/api/chat -d '{
+  "model": "mistral",
+  "messages": [
+    { "role": "user", "content": "why is the sky blue?" }
+  ]
+}'
+```
+
+## Conclusion
+
+In short, being able to run LLM models locally opens exciting new
+perspectives for building intelligent, interactive systems, with
+significant implications for a wide range of practical applications.
+
+---
+
+*Originally published in Portuguese on
+[LinkedIn](https://www.linkedin.com/pulse/explorando-intelig%C3%AAncia-artificial-generativa-com-ollama-jan-souza-5aijf/)
+on April 1, 2024.*

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "While the prompt runs, I play chess"
-date: 2026-10-30 10:00:00 -0300
+date: 2026-10-29 10:00:00 -0300
 categories: [carreira]
 tags: [inteligencia-artificial, ia, carreira, xadrez, hobby, agentes]
 stage: mature

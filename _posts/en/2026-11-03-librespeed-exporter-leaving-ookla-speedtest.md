@@ -112,29 +112,15 @@ about 90 GB per day per server. On a metered link, it's worth increasing
 `librespeed_transferred_bytes_total` metric shows how much the exporter
 itself has used.
 
-## Stability test
-
-A test every 30 minutes can't see a two-minute drop between one run and
-the next. LibreSpeed's web UI has a stability test, which sends small
-back-to-back requests to the server and measures latency, jitter and
-failures, but librespeed-cli has no such mode. Since the web test is just a
-sequence of `GET` requests to the ping path, the exporter does it itself
-when `stability.enabled` is on: one request per second to each server,
-continuously, with latency and jitter recorded in histograms.
-
-Probing pauses while the speed test runs, otherwise the saturated link
-would show up as a latency spike every 30 minutes. It's also off by
-default, so nobody starts sending requests to a public server without
-asking for it.
-
-![Stability panels in Grafana over one night: p50, p95 and p99 latency, jitter, percentage of failed probes and a heatmap of the latency distribution, almost all of it between 500 µs and 2 ms](/assets/images/librespeed-exporter/dashboard-stability.png)
-
 ## Dashboard and alerts
 
-![librespeed-exporter dashboard in Grafana with 12 hours of data: download, upload, ping, success rate and last test cards, a table with the latest results per server, download, upload, ping and jitter charts and bars of data used per day](/assets/images/librespeed-exporter/dashboard.png)
+![librespeed-exporter dashboard in Grafana with 20 hours of data from the claro-link and vivo-link links: download, upload, ping, success rate and last test cards, a table with the latest results, ISP and a blurred public IP, download, upload, ping and jitter charts and bars of data used per day](/assets/images/librespeed-exporter/dashboard.png)
 
-The screenshots come from the `deploy/compose` lab, with the LibreSpeed
-server running on the same machine, hence the speeds in the Gb/s range.
+The screenshots are from my dashboard, with both of my home links. The
+Claro link shows around 690 Mb/s download and 330 Mb/s upload, with ping
+under 3 ms. The Vivo link sits around 240 Mb/s and 80 Mb/s, below the
+contracted speed because of the server, as I explain at the end of the
+post.
 
 The repository includes a Grafana dashboard with the latest results per
 server (with ISP and public IP, if `collect_client_info` is on), download,
@@ -154,6 +140,23 @@ docker compose up -d --build
 ```
 
 Grafana is at `http://127.0.0.1:3000`, with user and password `admin`.
+
+## Stability test
+
+A test every 30 minutes can't see a two-minute drop between one run and
+the next. LibreSpeed's web UI has a stability test, which sends small
+back-to-back requests to the server and measures latency, jitter and
+failures, but librespeed-cli has no such mode. Since the web test is just a
+sequence of `GET` requests to the ping path, the exporter does it itself
+when `stability.enabled` is on: one request per second to each server,
+continuously, with latency and jitter recorded in histograms.
+
+Probing pauses while the speed test runs, otherwise the saturated link
+would show up as a latency spike every 30 minutes. It's also off by
+default, so nobody starts sending requests to a public server without
+asking for it.
+
+![Stability panels in Grafana over one night, for the claro-link and vivo-link links: p50, p95 and p99 latency, jitter, percentage of failed probes and a latency distribution heatmap for each link, mostly between 2 and 4 ms on Claro and between 32 and 64 ms on Vivo](/assets/images/librespeed-exporter/dashboard-stability.png)
 
 ## Installing
 

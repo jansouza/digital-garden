@@ -39,6 +39,6 @@ https://github.com/jansouza/librespeed-exporter
 ---
 
 **TODO antes de publicar:**
-- [ ] Anexar um print. O dashboard.png é do lab local, com velocidades na casa dos Gb/s; o dashboard-stability.png não tem esse problema. Se usar o dashboard.png, vale avisar que é do lab
+- [ ] Anexar o print do dashboard (assets/images/librespeed-exporter/dashboard.png, com os dois links e o IP público borrado)
 - [ ] Conferir se a URL do post bate com o permalink gerado (data/categoria)
 - [ ] Postar o primeiro comentário com os links logo após publicar
